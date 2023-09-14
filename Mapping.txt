@@ -1,0 +1,28 @@
+Table students {
+  student_id integer [primary key]
+  student_name varchar
+  student_cert_name varchar
+  student_phone varchar
+  student_email varchar
+  created_at timestamp
+}
+
+Table courses {
+  course_id integer [primary key]
+  course_name varchar
+  course_decription varchar
+  course_instructor varchar
+  created_at timestamp
+}
+
+Table enrolls {
+  enroll_id integer [primary key]
+  enroll_course varchar
+  enroll_student integer
+  enrollment timestamp
+  created_at timestamp
+}
+
+Ref: "enrolls"."enroll_student" < "students"."student_id"
+
+Ref: "courses"."course_id" < "enrolls"."enroll_course"
